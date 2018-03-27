@@ -4,6 +4,7 @@ import os.path
 import time
 import face_recognition
 all_list=[]
+#informations=[]
 def show_rectangle_on_faces(img_path):
     time_start = time.time()
     # Load the jpg file into a numpy array
@@ -25,8 +26,9 @@ def show_rectangle_on_faces(img_path):
 
         draw.rectangle(((left, top), (right, bottom)), outline=(0, 0, 255))
         information.append((left,top,right,bottom))
-        print(information)
+        #print(information)
     pil_image.show()
+    all_list.append(information)
     time_end = time.time()
     print('Time cost is ', time_end - time_start,'s')
 
@@ -34,7 +36,9 @@ def show_rectangle_on_faces(img_path):
 for image_file in os.listdir("E:\PycharmProject\Test"):
     filename = os.path.basename(image_file)
     #print(filename)
-    all_list.append(show_rectangle_on_faces(os.path.join("E:\PycharmProject\Test", image_file)))
+    #all_list.append(show_rectangle_on_faces(os.path.join("E:\PycharmProject\Test", image_file)))
+
     #print(information)
 
     show_rectangle_on_faces(os.path.join("E:\PycharmProject\Test", image_file))
+print(all_list)
