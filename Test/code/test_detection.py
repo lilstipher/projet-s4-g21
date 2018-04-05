@@ -3,7 +3,11 @@ import os
 import os.path
 import time
 import face_recognition
+import matplotlib.pyplot as plt
+
 all_list=[]
+pixel=[]
+timeT=[]
 #informations=[]
 def show_rectangle_on_faces(img_path):
     time_start = time.time()
@@ -12,10 +16,10 @@ def show_rectangle_on_faces(img_path):
     # Find all the faces in the image using the default HOG-based model.
     # This method is fairly accurate, but not as accurate as the CNN model and not GPU accelerated.
     # See also: find_faces_in_picture_cnn.py
-    t1=time.time()
+    #t1=time.time()
     face_locations = face_recognition.face_locations(image)
-    t2=time.time()
-    print('time for face_location',t2-t1)
+    #t2=time.time()
+    #print('time for face_location',t2-t1)
     information = [filename]
     #print("I found {} face(s) in this photograph.".format(len(face_locations)))
     pil_image = Image.fromarray(image)
@@ -30,18 +34,23 @@ def show_rectangle_on_faces(img_path):
         draw.rectangle(((left, top), (right, bottom)), outline=(0, 0, 255))
         information.append((left,top,right,bottom))
         #print(information)
-    pil_image.show()
+    #pil_image.show()
     all_list.append(information)
     time_end = time.time()
-    print('Time cost is ', time_end - time_start,'s')
+    #print('Time cost is ', time_end - time_start,'s')
+    Width, Height = pil_image.size
+    pixel.append(Width*Height)
+    timeT.append(time_end - time_start)
 
     return information
-for image_file in os.listdir("/home/hmkouassi/Bureau/S4/projet-s4-g21/Ingenierie/Detection/code/img"):
+for image_file in os.listdir("/home/hmkouassi/Bureau/S4/projet-s4-g21/Test/code/img/redim/"):
     filename = os.path.basename(image_file)
     #print(filename)
     #all_list.append(show_rectangle_on_faces(os.path.join("E:\PycharmProject\Test", image_file)))
 
     #print(information)
 
-    show_rectangle_on_faces(os.path.join("/home/hmkouassi/Bureau/S4/projet-s4-g21/Ingenierie/Detection/code/img", image_file))
-print(all_list)
+    show_rectangle_on_faces(os.path.join("/home/hmkouassi/Bureau/S4/projet-s4-g21/Test/code/img/redim/", image_file))
+#print(time_pixel)
+plt.plot(pixel,timeT, 'bo')
+plt.show()

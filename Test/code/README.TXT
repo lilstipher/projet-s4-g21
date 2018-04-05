@@ -1,1 +1,3 @@
 README
+Ce protocole a pour but de mesurer les performance de la méthode (l’algorithme) de détection choisie. Notre mesure principal est le taux de détection de visages sur un groupe d’image ainsi que le taux de détection pour une seule image avec de nombreuses personnes.  En terme de complexité, nous imposons à  notre méthode de détection d’être assez rapide, elle ne doit pas dépasser un temps maximal que nous avons définis à la cinquième partie. En plus de la complexité, la fiabilité de la détection est aussi à prendre en compte. pour cette mesure, nous allons donner un pourcentage représentant la proportion du visage détecter. 
+
