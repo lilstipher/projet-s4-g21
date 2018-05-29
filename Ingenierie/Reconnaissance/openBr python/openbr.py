@@ -25,7 +25,7 @@ mycatsimg = open('messi3.jpg', 'rb').read() # cat picture not provided =^..^=
 mycatstmpl = br.br_load_img(mycatsimg, len(mycatsimg))
 query = br.br_enroll_template(mycatstmpl)
 nqueries = br.br_num_templates(query)
-print(nqueries)
+print(query)
 scores = []
 for imurl in imageFiles:
     # load and enroll image from path
@@ -34,7 +34,6 @@ for imurl in imageFiles:
     targets = br.br_enroll_template(tmpl)
     ntargets = br.br_num_templates(targets)# compare and collect scores
     scoresmat = br.br_compare_template_lists(targets, query)
-    print(scoresmat)
     for r in range(ntargets):
         for c in range(nqueries):
             scores.append((imurl, abs(br.br_get_matrix_output_at(scoresmat, r, c))))
