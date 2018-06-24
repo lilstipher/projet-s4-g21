@@ -10,6 +10,7 @@ automatiques en se basant sur les images fournies prises dans des conditions ré
 
 ## Résulats
 Sur une base de 1530 images pour l’apprentissage et 116 images pour le test.
+
 | Solution         | Accuracy      | Recall|
 | -----------------|:-------------:| -----:|
 | Face recognition |   90,74       | 84,49 |
