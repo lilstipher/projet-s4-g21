@@ -1,0 +1,8 @@
+pages:
+    - Home: index.md
+    - Face Recognition: facerecognition.md
+    - Open Br: openbr.md
+    - Open Face: openface.md
+    - About:
+          - Licence:  'about/license.md'
+theme: jekyll-theme-cayman
