@@ -62,6 +62,18 @@
     <a class="current" href="./">Open Br</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#open-br">Open Br</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#installation">installation</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#face-recognition">Face Recognition</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -113,7 +125,348 @@
           <div role="main">
             <div class="section">
               
-                <p>fvfvfddf</p>
+                <h1 id="open-br">Open Br</h1>
+<p>OpenBr est un projet open-source qui vise à améliorer les algorithmes existants, de s'interfacer avec des systèmes commerciaux, de mesurer les performances de reconnaissance et de déployer des systèmes biométriques automatisés. Le projet est conçu pour faciliter le prototypage rapide d'algorithmes, et dispose d'un cadre de base mature, d'un système de plug-in flexible et d'un support pour le développement de sources ouvertes et fermées. Des algorithmes prêts à l'emploi sont également disponibles pour des modalités spécifiques, notamment la reconnaissance faciale, l’estimation de l'âge et l'estimation du genre. Les créateurs sont J. Klontz, B. Klare, S. Klum, M. Burge, A. Jain.</p>
+<h2 id="installation">installation</h2>
+<p>OpenBR est pris en charge sur plusieurs systèmes d'exploitation.
+Notamment:</p>
+<ul>
+<li>Linux</li>
+<li>Mac Os X</li>
+<li>Windows</li>
+</ul>
+<p>Cepedant nous avons préparé une <code>machine virtuelle linux</code> déjà prête à l'emploi. <a href="../www.linktoadd.com">Disponible ici</a>.</p>
+<h3 id="installation-linux">Installation Linux</h3>
+<ol>
+<li>
+<p>Installer GCC 4.9.2</p>
+<pre><code>$ sudo apt-get update
+$ sudo apt-get install build-essential
+</code></pre>
+</li>
+<li>
+<p>Installer CMake 3.0.2</p>
+<pre><code>$ sudo apt-get install cmake cmake-curses-gui
+</code></pre>
+</li>
+<li>
+<p><a href="http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.11/opencv-2.4.11.zip/download">Télécharger OpenCV 2.4.11</a>, <strong>Aussi</strong> <a href="https://github.com/biometrics/openbr/wiki/Build-OpenCV-with-Video-Support-on-Ubuntu">Faire un build OpenCV avec support vidéo</a></p>
+<pre><code>$ cd ~/Downloads
+$ unzip opencv-2.4.11.zip
+$ cd opencv-2.4.11
+$ mkdir build
+$ cd build
+$ cmake -DCMAKE_BUILD_TYPE=Release ..
+$ make -j4
+$ sudo make install
+$ cd ../..
+$ rm -rf opencv-2.4.11*
+</code></pre>
+</li>
+<li>
+<p>Installer Qt 5.4.1</p>
+<pre><code>$ sudo apt-get install qt5-default libqt5svg5-dev qtcreator
+</code></pre>
+</li>
+<li>
+<p>Avec un compte <a href="https://github.com/">GitHub</a> </p>
+<pre><code>$ git clone https://github.com/biometrics/openbr.git
+$ cd openbr
+$ git checkout v1.1.0
+$ git submodule init
+$ git submodule update
+</code></pre>
+</li>
+<li>
+<p>Build OpenBR!</p>
+<pre><code>$ mkdir build # from the OpenBR root directory
+$ cd build
+$ cmake -DCMAKE_BUILD_TYPE=Release ..
+$ make -j4
+$ sudo make install
+</code></pre>
+</li>
+<li>
+<p>Hack OpenBR!</p>
+<ol>
+<li>
+<p>Open Qt Creator IDE</p>
+<p>$ qtcreator &amp;</p>
+</li>
+<li>
+<p>From the Qt Creator "File" menu select "Open File or Project...".</p>
+</li>
+<li>Select "openbr/CMakeLists.txt" then "Open".</li>
+<li>Browse to your pre-existing build directory "openbr/build" then select "Next".</li>
+<li>Select "Run CMake" then "Finish".</li>
+<li>You're all set! You can find more information on Qt Creator <a href="http://qt-project.org/doc/qtcreator">here</a> if you need it.</li>
+</ol>
+</li>
+<li>
+<p>(Optionel) Tester OpenBR (un peu lourd)!</p>
+<pre><code>$ cd openbr/scripts
+$ ./downloadDatasets.sh
+$ cd ../build
+$ make test
+</code></pre>
+</li>
+<li>
+<p>(Optionel) Package OpenBR!</p>
+<pre><code>$ cd openbr/build
+$ sudo cpack -G TGZ
+</code></pre>
+</li>
+<li>
+<p>(Optionel) Build OpenBR documentation!</p>
+<ol>
+<li>
+<p>Générer la documentation</p>
+<pre><code>$ pip install mkdocs
+$ cd openbr/docs
+$ sh build_docs.sh
+$ mkdocs serve
+</code></pre>
+</li>
+<li>
+<p>Taper <code>http://127.0.0.1:8000</code> dans votre ordinateur pour voir la docs.</p>
+</li>
+</ol>
+</li>
+</ol>
+<hr />
+<h3 id="osx">OSX</h3>
+<p>1.Téléchargez et installez les derniers outils «XCode» et «Command Line Tools» sur [la page Téléchargements de développeurs Apple].(https://developer.apple.com/downloads/index.action#) page.</p>
+<ol>
+<li>
+<p><a href="http://www.cmake.org/files/v3.0/cmake-3.0.2.tar.gz">Télécharger CMake 3.0.2</a></p>
+<pre><code>    $ cd ~/Downloads
+    $ tar -xf cmake-3.0.2.tar.gz
+    $ cd cmake-3.0.2
+    $ ./configure
+    $ make -j4
+    $ sudo make install
+    $ cd ..
+    $ rm -rf cmake-3.0.2*
+</code></pre>
+</li>
+<li>
+<p><a href="http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.11/opencv-2.4.11.zip/download">Télécharger OpenCV 2.4.11</a></p>
+<pre><code>$ cd ~/Downloads
+$ unzip opencv-2.4.11.zip
+$ cd opencv-2.4.11
+$ mkdir build
+$ cd build
+$ cmake -DCMAKE_BUILD_TYPE=Release ..
+$ make -j4
+$ sudo make install
+$ cd ../..
+$ rm -rf opencv-2.4.11*
+</code></pre>
+</li>
+<li>
+<p><a href="http://download.qt.io/official_releases/qt/5.4/5.4.1/qt-opensource-mac-x64-clang-5.4.1.dmg">Télécharger et installler Qt 5.4.1</a></p>
+</li>
+<li>
+<p>Avec un compte <a href="https://github.com/">GitHub</a></p>
+<pre><code>$ git clone https://github.com/biometrics/openbr.git
+$ cd openbr
+$ git checkout v1.1.0
+$ git submodule init
+$ git submodule update
+</code></pre>
+</li>
+<li>
+<p>Build OpenBR!</p>
+<pre><code>$ mkdir build # from the OpenBR root directory
+$ cd build
+$ cmake -DCMAKE_PREFIX_PATH=~/Qt/5.4.1/clang_64 -DCMAKE_BUILD_TYPE=Release ..
+$ make -j4
+$ sudo make install
+</code></pre>
+</li>
+<li>
+<p>Hack OpenBR!</p>
+<ol>
+<li>
+<p>Open Qt Creator IDE</p>
+<pre><code>$ open ~/Qt/Qt\ Creator.app
+</code></pre>
+</li>
+<li>
+<p>From the Qt Creator "File" menu select "Open File or Project...".</p>
+</li>
+<li>Select "openbr/CMakeLists.txt" then "Open".</li>
+<li>Browse to your pre-existing build directory "openbr/build" then select "Continue".</li>
+<li>Select "Run CMake" then "Done".</li>
+<li>You're all set! You can find more information on Qt Creator <a href="http://qt-project.org/doc/qtcreator">here</a> if you need it.</li>
+</ol>
+</li>
+<li>
+<p>(Optionel) Tester OpenBR (un peu lourd)!</p>
+<pre><code>$ cd openbr/scripts
+$ ./downloadDatasets.sh
+$ cd ../build
+$ make test
+</code></pre>
+</li>
+<li>
+<p>(Optional) Package OpenBR!</p>
+<pre><code>$ cd openbr/build
+$ sudo cpack -G TGZ
+</code></pre>
+</li>
+<li>
+<p>(Optional) Build OpenBR documentation!</p>
+<ol>
+<li>
+<p>Générer la doc</p>
+<pre><code>$ pip install mkdocs
+$ cd openbr/docs
+$ sh build_docs.sh
+$ mkdocs serve
+</code></pre>
+</li>
+<li>
+<p>Taper <code>http://127.0.0.1:8000</code> dans votre ordinateur pour voir la docs.</p>
+</li>
+</ol>
+</li>
+</ol>
+<hr />
+<h3 id="windows">Windows</h3>
+<ol>
+<li>
+<p><a href="http://go.microsoft.com/?linkid=9832280&amp;clcid=0x409">Téléchargez Visual Studio Express 2013 pour Windows Desktop</a> et installez-le. Vous devrez vous enregistrer auprès de Microsoft, mais c'est gratuit.e.</p>
+</li>
+<li>
+<p><a href="http://www.cmake.org/files/v3.0/cmake-3.0.2-win32-x86.exe">Télécharger et installer CMake 3.0.2</a>
+     1. Pendant la configuration de l'installation, sélectionnez "Ajouter CMake à PATH".</p>
+</li>
+<li>
+<p><a href="https://github.com/Itseez/opencv/archive/2.4.11.zip">Télécharger OpenCV 2.4.11</a>
+     1. Considérez le programme open source gratuit <a href="http://www.7-zip.org/">7-Zip</a> si vous avez besoin d'un programme pour désarchiver les archives.
+     2. Déplacez le dossier "opencv-2.4.11" sur "C: \".</p>
+<ol>
+<li>Ouvrir  "l'invite de commande VS2013 x64 Cross Tools "  (dans le menu Démarrer, sélectionnez «Tous les programmes» -&gt; «Microsoft Visual Studio 2013» -&gt; «Outils Visual Studio» -&gt; «Invite de commandes VS2013 x64 Cross Tools») :
+        $ cd C:\opencv-2.4.11
+        $ mkdir build-msvc2013
+        $ cd build-msvc2013
+        $ cmake -G "NMake Makefiles" -DBUILD_PERF_TESTS=OFF -DBUILD_TESTS=OFF -DWITH_CUDA=OFF -DWITH_FFMPEG=OFF -DCMAKE_BUILD_TYPE=Debug ..
+        $ nmake
+        $ nmake install
+        $ cmake -DCMAKE_BUILD_TYPE=Release ..
+        $ nmake
+        $ nmake install
+        $ nmake clean</li>
+</ol>
+</li>
+<li>
+<p><a href="http://download.qt.io/official_releases/qt/5.4/5.4.1/qt-opensource-windows-x86-msvc2013_64-5.4.1.exe">Télécharger et Installer Qt 5.4.1</a></p>
+</li>
+<li>
+<p>Avec un compte <a href="https://github.com/">GitHub</a> </p>
+<pre><code>    $ cd /c
+    $ git clone https://github.com/biometrics/openbr.git
+    $ cd openbr
+    $ git checkout v1.1.0
+    $ git submodule init
+    $ git submodule update
+</code></pre>
+</li>
+<li>
+<p>Build OpenBR!</p>
+<ol>
+<li>From the VS2013 x64 Cross Tools Command Prompt:<pre><code>$ cd C:\openbr
+$ mkdir build-msvc2013
+$ cd build-msvc2013
+$ cmake -G "CodeBlocks - NMake Makefiles" -DCMAKE_PREFIX_PATH="C:/opencv-2.4.11/build/install;C:/Qt/Qt5.4.1/5.4/msvc2013_64" -DCMAKE_INSTALL_PREFIX="./install" -DBR_INSTALL_DEPENDENCIES=ON -DCMAKE_BUILD_TYPE=Release ..
+$ nmake
+$ nmake install
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>Découvrez le dossier "install".</p>
+</li>
+<li>
+<p>Hack OpenBR!</p>
+<ol>
+<li>From the VS2013 x64 Cross Tools Command Prompt:
+    $ C:\Qt\Qt5.4.1\Tools\QtCreator\bin\qtcreator.exe</li>
+<li>From the Qt Creator "Tools" menu select "Options..."</li>
+<li>Under "Kits" select "Desktop (default)"</li>
+<li>For "Compiler:" select "Microsoft Visual C++ Compiler 11.0 (x86_amd64)" and click "OK"</li>
+<li>From the Qt Creator "File" menu select "Open File or Project...".</li>
+<li>Select "C:\openbr\CMakeLists.txt" then "Open".</li>
+<li>If prompted for the location of CMake, enter "C:\Program Files (x86)\CMake 3.0.2\bin\cmake.exe".</li>
+<li>Browse to your pre-existing build directory "C:\openbr\build-msvc2013" then select "Next".</li>
+<li>Select "Run CMake" then "Finish".</li>
+<li>You're all set! You can find more information on Qt Creator <a href="http://qt-project.org/doc/qtcreator">here</a> if you need.</li>
+</ol>
+</li>
+<li>
+<p>(Optional) Package OpenBR!</p>
+<ol>
+<li>From the VS2013 x64 Cross Tools Command Prompt:
+    $ cd C:\openbr\build-msvc2013
+    $ cpack -G ZIP</li>
+</ol>
+</li>
+</ol>
+<hr />
+<h1 id="face-recognition">Face Recognition</h1>
+<p>Ce tutoriel donne un exemple sur la façon d'effectuer une reconnaissance de visage dans OpenBR. OpenBR implémente l'algorithme 4SF <a href="http://openbiometrics.org/docs/tutorials/#fn:2">^2</a> pour effectuer la reconnaissance faciale. Veuillez lire le "paper" pour plus de détails sur l'algorithme. </p>
+<p>Pour commencer, On peut faire la reconnaissance faciale à partir de l'invite de commande. Ouvrez le terminal et entrez:</p>
+<pre><code>$ br -algorithm FaceRecognition \
+    -compare ../data/MEDS/img/S354-01-t10_01.jpg ../data/MEDS/img/S354-02-t10_01.jpg \
+     -compare ../data/MEDS/img/S354-01-t10_01.jpg ../data/MEDS/img/S386-04-t10_01.jpg
+</code></pre>
+<p>Assez facile? Vous devriez voir les résultats sur le terminal qui ressemblent à :</p>
+<pre><code>$ Set algorithm to FaceRecognition
+$ Loading /usr/local/share/openbr/models/algorithms/FaceRecognition
+$ Loading /usr/local/share/openbr/models/transforms//FaceRecognitionExtraction
+$ Loading /usr/local/share/openbr/models/transforms//FaceRecognitionEmbedding
+$ Loading /usr/local/share/openbr/models/transforms//FaceRecognitionQuantization
+$ Comparing ../data/MEDS/img/S354-01-t10_01.jpg and ../data/MEDS/img/S354-02-t10_01.jpg
+$ Enrolling ../data/MEDS/img/S354-01-t10_01.jpg to S354-01-t10_01r7Rv4W.mem
+$ 100.00%  ELAPSED=00:00:00  REMAINING=00:00:00  COUNT=1
+$ 100.00%  ELAPSED=00:00:00  REMAINING=00:00:00  COUNT=1
+$ 1.8812
+$ Comparing ../data/MEDS/img/S354-01-t10_01.jpg and ../data/MEDS/img/S386-04-t10_01.jpg
+$ Enrolling ../data/MEDS/img/S354-01-t10_01.jpg to S354-01-t10_01r7Rv4W.mem
+$ 100.00%  ELAPSED=00:00:00  REMAINING=00:00:00  COUNT=1
+$ 100.00%  ELAPSED=00:00:00  REMAINING=00:00:00  COUNT=1
+$ 0.571219
+</code></pre>
+<p>Alors, qu'est-ce que <code>FaceRecognition</code>? C'est une abbrieviation pour simplifier l'exécution de l'algorithme. Toutes les abréviations d'algorithmes se trouvent dans <code>openbr / plugins / core / algorithms.cpp</code>.</p>
+<p>Il est également possible:</p>
+<ul>
+<li>Évaluer les performances de reconnaissance de faciale (Notez que cela nécessite <a href="http://www.r-project.org/">R</a>):</li>
+</ul>
+<pre><code>        $ br -algorithm FaceRecognition -path ../data/MEDS/img/ \
+        -enroll ../data/MEDS/sigset/MEDS_frontal_target.xml target.gal \
+        -enroll ../data/MEDS/sigset/MEDS_frontal_query.xml query.gal \
+        -compare target.gal query.gal scores.mtx \
+        -makeMask ../data/MEDS/sigset/MEDS_frontal_target.xml ../data/MEDS/sigset/MEDS_frontal_query.xml MEDS.mask \
+        -eval scores.mtx MEDS.mask Algorithm_Dataset/FaceRecognition_MEDS.csv \
+        -plot Algorithm_Dataset/FaceRecognition_MEDS.csv MEDS
+</code></pre>
+
+<ul>
+<li>
+<p>Effectuez une recherche de reconnaissance faciale 1:N.</p>
+<pre><code>$ br -algorithm FaceRecognition -enrollAll -enroll ../data/MEDS/img 'meds.gal'
+$ br -algorithm FaceRecognition -compare meds.gal ../data/MEDS/img/S001-01-t10_01.jpg match_scores.csv
+</code></pre>
+</li>
+<li>
+<p>Entrainer un nouvel algorithme de reconnaissance faciale (sur une autre base):</p>
+<pre><code>$ br -algorithm 'Open+Cvt(Gray)+Cascade(FrontalFace)+ASEFEyes+Affine(128,128,0.33,0.45)+(Grid(10,10)+SIFTDescriptor(12)+ByRow)/(Blur(1.1)+Gamma(0.2)+DoG(1,2)+ContrastEq(0.1,10)+LBP(1,2)+RectRegions(8,8,6,6)+Hist(59))+PCA(0.95)+Normalize(L2)+Dup(12)+RndSubspace(0.05,1)+LDA(0.98)+Cat+PCA(0.95)+Normalize(L1)+Quantize:NegativeLogPlusOne(ByteL1)' -train ../data/ATT/img FaceRecognitionATT
+</code></pre>
+</li>
+</ul>
+<p>L'API de ligne de commande est documentée <a href="http://openbiometrics.org/docs/api_docs/cl_api/">ici</a>.</p>
               
             </div>
           </div>

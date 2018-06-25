@@ -125,9 +125,8 @@
             <div class="section">
               
                 <h1 id="face-recognition">Face Recognition</h1>
-<p>Reconnaître et manipuler les visages de Python ou de la ligne de commande avec
-la bibliothèque de reconnaissance faciale la plus simple au monde.</p>
-<p>Construit en utilisant <a href="http://dlib.net/">dlib</a> la reconnaissance de visage à la fine pointe de la technologie
+<p><em>Face recognition</em> est une méthode utilisant le Deep Learning qui présente une bonne solution pour la résolution du problème de la reconnaissance de personne. Cette méthode commence d’abord par détecter tous les visages présents dans l’image fournie en entrée. Ensuite, sur chaque visage applique les opérations nécessaires sur chaque visage tel que la rotation afin d’obtenir une vue de profil. La prochaine étape consiste à transformer cette image en 128 caractéristiques qui sont propres à la personne de façon quand une même personne est présente sur 2 images différentes aura les mêmes ou de très proche ensemble de caractéristiques. La dernière étape consiste à comparer ces données-ci aux données déjà existant dans la base d’apprentissage afin identifier et de déterminer le nom de la personne.</p>
+<p>Construit en utilisant <a href="http://dlib.net/">dlib</a> Face recognition est à la fine pointe de la technologie
 construit avec un apprentissage profond. Le modèle a une précision de 99,38% sur le
 <a href="http://vis-www.cs.umass.edu/lfw/">Labeled Faces in the Wild</a>.</p>
 <h2 id="installation">Installation</h2>
@@ -159,7 +158,9 @@ construit avec un apprentissage profond. Le modèle a une précision de 99,38% s
 <li>Guide d'installation de Windows 10 de @ masoudr <a href="https://github.com/ageitgey/face_recognition/issues/175#issue-257710508">dlib + face_recognition</a>.</li>
 </ul>
 <h4 id="installation-dune-image-de-machine-virtuelle-preconfiguree">Installation d'une image de machine virtuelle préconfigurée</h4>
-<p>s* <a href="https://medium.com/@ageitgey/try-deep-learning-in-python-now-with-a-fully-pre-configured-vm-1d97d4c3e9b">Télécharger l'image VM préconfigurée</a> (pour VMware Player ou VirtualBox).</p>
+<ul>
+<li><a href="https://medium.com/@ageitgey/try-deep-learning-in-python-now-with-a-fully-pre-configured-vm-1d97d4c3e9b">Télécharger l'image VM préconfigurée</a> (pour VMware Player ou VirtualBox).</li>
+</ul>
 <h2 id="utilisation">Utilisation</h2>
 <h3 id="lentrainement-du-classificateur-knn">L'entrainement du classificateur KNN</h3>
 <p>Afin de pouvoir reconnaître les visages, nous devons créer un classificateur et le sauvegarder à l'avance.</p>

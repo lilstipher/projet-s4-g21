@@ -1,9 +1,8 @@
 ﻿# Face Recognition
+*Face recognition* est une méthode utilisant le Deep Learning qui présente une bonne solution pour la résolution du problème de la reconnaissance de personne. Cette méthode commence d’abord par détecter tous les visages présents dans l’image fournie en entrée. Ensuite, sur chaque visage applique les opérations nécessaires sur chaque visage tel que la rotation afin d’obtenir une vue de profil. La prochaine étape consiste à transformer cette image en 128 caractéristiques qui sont propres à la personne de façon quand une même personne est présente sur 2 images différentes aura les mêmes ou de très proche ensemble de caractéristiques. La dernière étape consiste à comparer ces données-ci aux données déjà existant dans la base d’apprentissage afin identifier et de déterminer le nom de la personne.
 
-Reconnaître et manipuler les visages de Python ou de la ligne de commande avec
-la bibliothèque de reconnaissance faciale la plus simple au monde.
 
-Construit en utilisant [dlib](http://dlib.net/) la reconnaissance de visage à la fine pointe de la technologie
+Construit en utilisant [dlib](http://dlib.net/) Face recognition est à la fine pointe de la technologie
 construit avec un apprentissage profond. Le modèle a une précision de 99,38% sur le
 [Labeled Faces in the Wild](http://vis-www.cs.umass.edu/lfw/).
 
@@ -48,7 +47,7 @@ Bien que Windows ne soit pas officiellement pris en charge, il existe des métho
 
 #### Installation d'une image de machine virtuelle préconfigurée
 
-s* [Télécharger l'image VM préconfigurée](https://medium.com/@ageitgey/try-deep-learning-in-python-now-with-a-fully-pre-configured-vm-1d97d4c3e9b) (pour VMware Player ou VirtualBox).
+* [Télécharger l'image VM préconfigurée](https://medium.com/@ageitgey/try-deep-learning-in-python-now-with-a-fully-pre-configured-vm-1d97d4c3e9b) (pour VMware Player ou VirtualBox).
 
 ## Utilisation
 

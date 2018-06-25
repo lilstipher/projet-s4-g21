@@ -71,13 +71,15 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#environment">Environment</a></li>
+            <li><a class="toctree-l3" href="#environnement">Environnement</a></li>
         
-            <li><a class="toctree-l3" href="#automated-docker-build">Automated Docker Build</a></li>
+            <li><a class="toctree-l3" href="#docker-automatise">Docker automatisé</a></li>
         
-            <li><a class="toctree-l3" href="#creating-a-classification-model">Creating a Classification Model</a></li>
+            <li><a class="toctree-l3" href="#creation-dun-modele-de-classification">Création d'un modèle de classification</a></li>
         
-            <li><a class="toctree-l3" href="#face-recognition">Face recognition</a></li>
+            <li><a class="toctree-l3" href="#reconnaissance-de-visage">Reconnaissance de visage</a></li>
+        
+            <li><a class="toctree-l3" href="#en-plus">En plus</a></li>
         
         </ul>
     
@@ -129,60 +131,74 @@
             <div class="section">
               
                 <h1 id="openface-of-project-21">Openface of project-21</h1>
-<p>This is a guide to help you use <code>Openface</code> at your own computer.</p>
-<h2 id="environment">Environment</h2>
-<p>The following instructions are for <code>Linux</code> and <code>OSX</code> only.</p>
+<p>La méthode Open Face est une méthode de reconnaissance faciale open source développée par Brandon Amos Bartosz Ludwiczuk, et Mahadev Satyanarayanan. Elle est basée sur le document FaceNet de CVR 2015 :<em>A Unifed Embedding for Face Recogniton and Clustering publié par les 3 ingénieurs de google Florian Schrof, Dmitry Kalenichenko, and James Philbin</em>. La méthode est implémentée en Python et Torch don peut être implémentée sur CPU ou GPU.</p>
+<p>Ceci est un guide pour vous aider à utiliser <code>Openface</code> sur votre propre ordinateur.
+ </p>
+<h2 id="environnement">Environnement</h2>
+<p>Les instructions suivantes sont pour <code>Linux</code> et<code>OSX</code> seulement.</p>
 <ul>
-<li>We strongly recommend using the <code>Docker</code> container unless you are experienced with building Linux software from source.</li>
-<li>In OSX, you may have to change the hashbangs from <code>python2</code> to <code>python</code>.</li>
-<li><code>OpenFace</code> has been tested in <code>Ubuntu</code> 14.04 and <code>OSX</code> 10.10 and may not work well on other distributions.</li>
+<li>Nous vous recommandons fortement d'utiliser le conteneur <code>Docker</code> sauf si vous êtes expérimenté dans la création de logiciels Linux à partir de sources.</li>
+<li>Dans OSX, vous devrez peut-être changer les hashbangs de <code>python2</code> à<code>python</code>.</li>
+<li><code>OpenFace</code> a été testé sur <code>Ubuntu</code> 14.04 et <code>OSX</code> 10.10 et peut ne pas fonctionner correctement sur d'autres distributions.
+Plus d'informations concernant l'installation sur <a href="https://cmusatyalab.github.io/openface/setup/">le site de open face</a>.</li>
 </ul>
-<h2 id="automated-docker-build">Automated Docker Build</h2>
-<p>The quickest way to getting started is to use our pre-built automated Docker build, which is available from <a href="https://hub.docker.com/r/bamos/openface/">bamos/openface</a>. This does not require or use a locally checked out copy of OpenFace. To use on your images, share a directory between your host and the Docker container.</p>
+<h2 id="docker-automatise">Docker automatisé</h2>
+<p>Le moyen le plus rapide de commencer est d'utiliser notre build Docker automatisé préconstruit, disponible sur <a href="https://hub.docker.com/r/bamos/openface/">bamos / openface</a>. Cela ne nécessite pas ou n'utilise pas une copie locale d'OpenFace. Pour utiliser sur vos images, partagez un répertoire entre votre hôte et le conteneur Docker.</p>
 <ul>
-<li>Here <code>local_directory</code> is the directory which is outside of <code>Docker container</code>, where you should put your traing-images in. (for example: /User/training-images)</li>
-<li>And <code>remote_directory</code> is the directory which is inside <code>Docker container</code> who has the same contents as <code>local_directory</code><pre><code>docker pull bamos/openface
-docker run -p 9000:9000 -p 8000:8000 -v /local_directory:/remote_directory -t -i bamos/openface /bin/bash
-</code></pre>
-</li>
+<li>Ici <code>local_directory</code> est le répertoire qui est en dehors de<code>Docker container</code>, où vous devriez placer vos images de traing. (Par exemple: / User / training-images)</li>
+<li>Et <code>remote_directory</code> est le répertoire qui se trouve dans<code>Docker container</code> qui a le même contenu que <code>local_directory</code></li>
 </ul>
-<h2 id="creating-a-classification-model">Creating a Classification Model</h2>
-<h3 id="1-create-raw-image-directory">1. Create raw image directory.</h3>
-<p>Prepare <code>30</code> pictures, they must be <code>2</code> different persons, the size of the picture does not matter, but it is better to include only faces, <code>15</code> pictures for each person, respectively placed in two different directories.</p>
-<pre><code>$ ./local_directory/traing-images
+<pre><code class="bash">$ docker pull bamos/openface
+$ docker run -p 9000:9000 -p 8000:8000 -v /local_directory:/remote_directory -t -i bamos/openface /bin/bash
+</code></pre>
 
-person-1
-├── image-1.jpg
-├── image-2.png
-...
-└── image-15.png
+<h2 id="creation-dun-modele-de-classification">Création d'un modèle de classification</h2>
+<h3 id="1-creez-un-repertoire-dimages-brutes">1. Créez un répertoire d'images brutes.</h3>
+<p>Préparer <code>30</code> images, ils doivent être<code>2</code> personnes différentes, la taille de l'image n'a pas d'importance, mais il est préférable d'inclure seulement des visages, <code>15</code> images pour chaque personne, respectivement placés dans deux répertoires différents.</p>
+<pre><code class="bash">$ ./local_directory/traing-images
+</code></pre>
 
-person-2
-├── image-1.png
-├── image-2.jpg
+<pre><code>Structure:
+
+personne-1
+├── image image-1.jpg
+├── image image-2.png
 ...
-└── image-15.png
+└── image image-15.png
+
+personne-2
+├── image image-1.png
+├── image image-2.jpg
+...
+└── image image-15.png
 </code></pre>
-<h3 id="2-face-detection">2. Face detection</h3>
-<p>Start automatic detection</p>
-<pre><code>/root/openface/util/align-dlib.py ./training-images align outerEyesAndNose ./aligned-images/ --size 96
+
+<h3 id="2-detection-de-visage">2. Détection de visage</h3>
+<p>Démarrer la détection automatique</p>
+<pre><code class="bash">$ /root/openface/util/align-dlib.py ./training-images align outerEyesAndNose ./aligned-images/ --size 96
 </code></pre>
-<p>The purpose of this step is to let the machine automatically trim these 30 photos into <code>96x96</code> png files for subsequent processing.</p>
-<p>The result of the processing is placed in the <code>aligned-images</code> directory. There are two folders below it, that is, the names of the two people you put in, and these two folders include faces of the two persons.</p>
-<h3 id="3-generate-representations">3. Generate Representations</h3>
-<pre><code>/root/openface/batch-represent/main.lua -outDir ./generated-embeddings/ -data ./aligned-images/
+
+<p>Le but de cette étape est de permettre à la machine de découper automatiquement ces 30 photos en fichiers png <code>96x96</code> pour un traitement ultérieur.</p>
+<p>Le résultat du traitement est placé dans le répertoire <code>aligned-images</code>. Il y a deux dossiers en dessous, c'est-à-dire les noms des deux personnes que vous avez placées, et ces deux dossiers incluent les visages des deux personnes.</p>
+<h3 id="3-generer-des-representations">3. Générer des représentations</h3>
+<pre><code class="bash">$ /root/openface/batch-represent/main.lua -outDir ./generated-embeddings/ -data ./aligned-images/
 </code></pre>
-<p>It produces the classification model which is an SVM saved to disk as a Python pickle. This step will generate 2 csv files in the <code>generated-embeddings</code> directory. The <code>labels.csv</code> and <code>reps.csv</code>, <code>labels.csv</code> are relatively simple, it just shows which photo corresponds to which person, and <code>reps.csv</code> is a large number of matrix.</p>
-<h3 id="4-create-the-classification-mode">4. Create the Classification Mode</h3>
-<pre><code>/root/openface/demos/classifier.py train ./generated-embeddings
+
+<p>Il produit le modèle de classification qui est un SVM enregistré sur le disque en tant que pickle Python. Cette étape va générer 2 fichiers csv dans le répertoire <code>generated-embeddings</code>. Les labels <code>labels.csv</code> et <code>reps.csv</code>,<code>labels.csv</code> sont relativement simples, ils montrent juste quelle photo correspond à quelle personne, et <code>reps.csv</code> est un grand nombre de matrices.</p>
+<h3 id="4-creez-le-mode-de-classification">4. Créez le mode de classification</h3>
+<pre><code class="bash">$ /root/openface/demos/classifier.py train ./generated-embeddings
 </code></pre>
-<p>The training result will generate a <code>classifier.pkl</code> file in the <code>generated-embeddings</code> directory. This is what we ultimately want.</p>
-<h2 id="face-recognition">Face recognition</h2>
-<p>Now you can start testing and copy a picture to <code>/local_directory</code> that is not in the dataset. This photo can include the background or the entire body, but it is better not to put a photo of several people, or the machine does not know which one you want to identify.</p>
-<p>Assuming the photo file is <code>local_directory/1.jpg</code></p>
-<pre><code>/root/openface/demos/classifier.py infer ./generated-embeddings/classifier.pkl 1.jpg
+
+<p>Le résultat de l'apprentissage générera un fichier <code>classifier.pkl</code> dans le répertoire<code>generated-embeddings</code>. C'est ce que nous voulons finalement.</p>
+<h2 id="reconnaissance-de-visage">Reconnaissance de visage</h2>
+<p>Vous pouvez maintenant commencer à tester et copier une image dans <code>/ local_directory</code> qui ne se trouve pas dans l'ensemble de données. Cette photo peut inclure le fond ou le corps entier, mais il est préférable de ne pas mettre une photo de plusieurs personnes, ou la machine ne sait pas laquelle vous voulez identifier.</p>
+<p>En supposant que le fichier photo est <code>local_directory / 1.jpg</code></p>
+<pre><code class="bash">$ /root/openface/demos/classifier.py infer ./generated-embeddings/classifier.pkl 1.jpg
 </code></pre>
-<p>If the person in the photo is one of the two people identified just now, the recognition accuracy will be more than <code>90%</code>. If not, it will be less than <code>80%</code>.</p>
+
+<p>Si la personne sur la photo est l'une des deux personnes identifiées tout à l'heure, la précision de la reconnaissance sera supérieure à 90%. Sinon, ce sera moins de 80%.</p>
+<h2 id="en-plus">En plus</h2>
+<p>Lien du docker utilisé pour le projet 21 disponible <a href="https://hub.docker.com/r/haipengli/projet_21_openface/">ici</a></p>
               
             </div>
           </div>

@@ -10,9 +10,9 @@ Au cours de notre vie quotidienne, nous percevons et identifions à longueur de 
 La documentation est divisée en 3 parties la première est une présentation générale de chaque méthode, ensuite une description du processus d'installation et d'utilisation. La seconde partie aborde l'utilisation et l'implémentation des protocoles de tests utilisés. La dernière partie est un guide d'utilisation du code fournis (tutorials).
 
 ## Présentation de chaque méthode
-* `Face recognition`
-* `Open Face`
-* `Open Br`
+* [`Face recognition`](../facerecognition)
+* [`Open Face`](../openface)
+* [`Open Br`](../openbr)
 
 ## Protocoles de tests
 * Détection
