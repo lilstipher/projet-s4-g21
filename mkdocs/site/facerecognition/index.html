@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Face Recognition - Projet 21</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Face Recognition";
+    var mkdocs_page_input_path = "facerecognition.md";
+    var mkdocs_page_url = "/facerecognition/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Projet 21</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Face Recognition</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#face-recognition">Face Recognition</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#installation">Installation</a></li>
+        
+            <li><a class="toctree-l3" href="#utilisation">Utilisation</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../openbr/">Open Br</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../openface/">Open Face</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Protocoles de tests</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../testprotocol/detection/">Détection</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../testprotocol/reconnaissance/">Reconnaissance</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutoriels et documentation du code</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../tutoriels/">Tutoriels</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docs/facerecognition/">Documentation Face recognition</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docs/openface/">Documentation Open Face</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docs/openbr/">Documentation  Open Br</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">About</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../about/license/">Licence</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Projet 21</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Face Recognition</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="face-recognition">Face Recognition</h1>
+<p><em>Face recognition</em> est une méthode utilisant le Deep Learning qui présente une bonne solution pour la résolution du problème de la reconnaissance de personne. Cette méthode commence d’abord par détecter tous les visages présents dans l’image fournie en entrée. Ensuite, sur chaque visage applique les opérations nécessaires sur chaque visage tel que la rotation afin d’obtenir une vue de profil. La prochaine étape consiste à transformer cette image en 128 caractéristiques qui sont propres à la personne de façon quand une même personne est présente sur 2 images différentes aura les mêmes ou de très proche ensemble de caractéristiques. La dernière étape consiste à comparer ces données-ci aux données déjà existant dans la base d’apprentissage afin identifier et de déterminer le nom de la personne.</p>
+<p>Construit en utilisant <a href="http://dlib.net/">dlib</a> Face recognition est à la fine pointe de la technologie
+construit avec un apprentissage profond. Le modèle a une précision de 99,38% sur le
+<a href="http://vis-www.cs.umass.edu/lfw/">Labeled Faces in the Wild</a>.</p>
+<h2 id="installation">Installation</h2>
+<h3 id="exigences">Exigences</h3>
+<ul>
+<li>Python 3.3+ ou Python 2.7</li>
+<li>macOS ou Linux (Windows n'est pas officiellement supporté, mais pourrait fonctionner)</li>
+</ul>
+<h3 id="options-dinstallation">Options d'installation:</h3>
+<h4 id="installation-sur-mac-ou-linux">Installation sur Mac ou Linux</h4>
+<p>Tout d'abord, assurez-vous que dlib est déjà installé avec les dépendances Python:</p>
+<pre><code class="bash">pip3 installer dlib
+</code></pre>
+
+<p>Afin d'installer correctement dlib, vous devrez peut-être installer <a href="https://cmake.org/">cmake</a></p>
+<p>Ensuite, installez ce module à partir de pypi en utilisant <code>pip3</code> (ou<code>pip2</code> pour Python 2):</p>
+<pre><code class="bash">pip3 installer face_recognition
+</code></pre>
+
+<p>Si vous rencontrez des problèmes avec l'installation, vous pouvez également essayer
+<a href="https://medium.com/@ageitgey/try-deep-learning-in-python-now-with-a-fully-pre-configured-vm-1d97d4c3e9b">VM préconfigurée</a>.</p>
+<h4 id="installation-sur-raspberry-pi-2">Installation sur Raspberry Pi 2+</h4>
+<ul>
+<li><a href="https://gist.github.com/ageitgey/1ac8dbe8572f3f533df6269dab35df65">Instructions d'installation de Raspberry Pi 2+</a></li>
+</ul>
+<h4 id="installation-sous-windows">Installation sous Windows</h4>
+<p>Bien que Windows ne soit pas officiellement pris en charge, il existe des méthodes pour le faire</p>
+<ul>
+<li>Guide d'installation de Windows 10 de @ masoudr <a href="https://github.com/ageitgey/face_recognition/issues/175#issue-257710508">dlib + face_recognition</a>.</li>
+</ul>
+<h4 id="installation-dune-image-de-machine-virtuelle-preconfiguree">Installation d'une image de machine virtuelle préconfigurée</h4>
+<ul>
+<li><a href="https://medium.com/@ageitgey/try-deep-learning-in-python-now-with-a-fully-pre-configured-vm-1d97d4c3e9b">Télécharger l'image VM préconfigurée</a> (pour VMware Player ou VirtualBox).</li>
+</ul>
+<h2 id="utilisation">Utilisation</h2>
+<h3 id="lentrainement-du-classificateur-knn">L'entrainement du classificateur KNN</h3>
+<p>Afin de pouvoir reconnaître les visages, nous devons créer un classificateur et le sauvegarder à l'avance.</p>
+<h4 id="creer-un-dossier-densemble-dapprentissage">Créer un dossier d'ensemble d'apprentissage</h4>
+<pre><code>Structure:
+        &lt;train_dir&gt; /
+        ├── &lt;personne1&gt; /
+        Som ├── &lt;nom de famille&gt; .jpeg
+        │ ├── &lt;nomdufichier2&gt; .jpeg
+        │ ├── ...
+        ├── &lt;personne2&gt; /
+        Som ├── &lt;nom de famille&gt; .jpeg
+        │ └── &lt;nomdufichier2&gt; .jpeg
+        └── ...
+</code></pre>
+
+<h4 id="entrainer-et-enregistrer-un-classificateur-knn">Entrainer et enregistrer un classificateur KNN</h4>
+<pre><code class="bash">knn_train.py --training-path --clf-saving-path
+</code></pre>
+
+<p>Où <code>training-path</code>est le dossier contenant les images d'apprentissage et<code>clf-saving-path</code> est le fichier classificateur (au format <code>.clf</code>).</p>
+<h3 id="identifier-les-visages-en-utilisant-le-classificateur-cree">Identifier les visages en utilisant le classificateur créé</h3>
+<p>Comme le classificateur KNN est bien entrainé et enregistré, nous n'avons plus besoin de d'entrainer le classificateur chaque fois que nous utilisons le modèle. 
+Cependant si on change de modèle on devra refaire l'entrainement, ie si on veut ajouter de nouvelles personnes dans la base d'apprentissage.</p>
+<pre><code class="bash">knn.py --clf-load-path --testing-path
+</code></pre>
+
+<p>Où clf-load-path est le fichier du classificateur et testing-path est le chemin de toute l'image de test.</p>
+<p>Une fois la reconnaissance terminée, un fichier <code>result.txt</code> sera créé, dans lequel la première colonne est le nom reconnu et la deuxième colonne le nom réel du fichier.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../openbr/" class="btn btn-neutral float-right" title="Open Br">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../openbr/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

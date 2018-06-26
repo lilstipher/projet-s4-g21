@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Open Face - Projet 21</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Open Face";
+    var mkdocs_page_input_path = "openface.md";
+    var mkdocs_page_url = "/openface/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Projet 21</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../facerecognition/">Face Recognition</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../openbr/">Open Br</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Open Face</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#openface-of-project-21">Openface of project-21</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#environnement">Environnement</a></li>
+        
+            <li><a class="toctree-l3" href="#docker-automatise">Docker automatisé</a></li>
+        
+            <li><a class="toctree-l3" href="#creation-dun-modele-de-classification">Création d'un modèle de classification</a></li>
+        
+            <li><a class="toctree-l3" href="#reconnaissance-de-visage">Reconnaissance de visage</a></li>
+        
+            <li><a class="toctree-l3" href="#en-plus">En plus</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Protocoles de tests</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../testprotocol/detection/">Détection</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../testprotocol/reconnaissance/">Reconnaissance</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutoriels et documentation du code</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../tutoriels/">Tutoriels</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docs/facerecognition/">Documentation Face recognition</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docs/openface/">Documentation Open Face</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docs/openbr/">Documentation  Open Br</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">About</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../about/license/">Licence</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Projet 21</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Open Face</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="openface-of-project-21">Openface of project-21</h1>
+<p>La méthode Open Face est une méthode de reconnaissance faciale open source développée par Brandon Amos Bartosz Ludwiczuk, et Mahadev Satyanarayanan. Elle est basée sur le document FaceNet de CVR 2015 :<em>A Unifed Embedding for Face Recogniton and Clustering publié par les 3 ingénieurs de google Florian Schrof, Dmitry Kalenichenko, and James Philbin</em>. La méthode est implémentée en Python et Torch don peut être implémentée sur CPU ou GPU.</p>
+<p>Ceci est un guide pour vous aider à utiliser <code>Openface</code> sur votre propre ordinateur.
+ </p>
+<h2 id="environnement">Environnement</h2>
+<p>Les instructions suivantes sont pour <code>Linux</code> et<code>OSX</code> seulement.</p>
+<ul>
+<li>Nous vous recommandons fortement d'utiliser le conteneur <code>Docker</code> sauf si vous êtes expérimenté dans la création de logiciels Linux à partir de sources.</li>
+<li>Dans OSX, vous devrez peut-être changer les hashbangs de <code>python2</code> à<code>python</code>.</li>
+<li><code>OpenFace</code> a été testé sur <code>Ubuntu</code> 14.04 et <code>OSX</code> 10.10 et peut ne pas fonctionner correctement sur d'autres distributions.
+Plus d'informations concernant l'installation sur <a href="https://cmusatyalab.github.io/openface/setup/">le site de open face</a>.</li>
+</ul>
+<h2 id="docker-automatise">Docker automatisé</h2>
+<p>Le moyen le plus rapide de commencer est d'utiliser notre build Docker automatisé préconstruit, disponible sur <a href="https://hub.docker.com/r/bamos/openface/">bamos / openface</a>. Cela ne nécessite pas ou n'utilise pas une copie locale d'OpenFace. Pour utiliser sur vos images, partagez un répertoire entre votre hôte et le conteneur Docker.</p>
+<ul>
+<li>Ici <code>local_directory</code> est le répertoire qui est en dehors de<code>Docker container</code>, où vous devriez placer vos images de traing. (Par exemple: / User / training-images)</li>
+<li>Et <code>remote_directory</code> est le répertoire qui se trouve dans<code>Docker container</code> qui a le même contenu que <code>local_directory</code></li>
+</ul>
+<pre><code class="bash">$ docker pull bamos/openface
+$ docker run -p 9000:9000 -p 8000:8000 -v /local_directory:/remote_directory -t -i bamos/openface /bin/bash
+</code></pre>
+
+<h2 id="creation-dun-modele-de-classification">Création d'un modèle de classification</h2>
+<h3 id="1-creez-un-repertoire-dimages-brutes">1. Créez un répertoire d'images brutes.</h3>
+<p>Préparer <code>30</code> images, ils doivent être<code>2</code> personnes différentes, la taille de l'image n'a pas d'importance, mais il est préférable d'inclure seulement des visages, <code>15</code> images pour chaque personne, respectivement placés dans deux répertoires différents.</p>
+<pre><code class="bash">$ ./local_directory/traing-images
+</code></pre>
+
+<pre><code>Structure:
+
+personne-1
+├── image image-1.jpg
+├── image image-2.png
+...
+└── image image-15.png
+
+personne-2
+├── image image-1.png
+├── image image-2.jpg
+...
+└── image image-15.png
+</code></pre>
+
+<h3 id="2-detection-de-visage">2. Détection de visage</h3>
+<p>Démarrer la détection automatique</p>
+<pre><code class="bash">$ /root/openface/util/align-dlib.py ./training-images align outerEyesAndNose ./aligned-images/ --size 96
+</code></pre>
+
+<p>Le but de cette étape est de permettre à la machine de découper automatiquement ces 30 photos en fichiers png <code>96x96</code> pour un traitement ultérieur.</p>
+<p>Le résultat du traitement est placé dans le répertoire <code>aligned-images</code>. Il y a deux dossiers en dessous, c'est-à-dire les noms des deux personnes que vous avez placées, et ces deux dossiers incluent les visages des deux personnes.</p>
+<h3 id="3-generer-des-representations">3. Générer des représentations</h3>
+<pre><code class="bash">$ /root/openface/batch-represent/main.lua -outDir ./generated-embeddings/ -data ./aligned-images/
+</code></pre>
+
+<p>Il produit le modèle de classification qui est un SVM enregistré sur le disque en tant que pickle Python. Cette étape va générer 2 fichiers csv dans le répertoire <code>generated-embeddings</code>. Les labels <code>labels.csv</code> et <code>reps.csv</code>,<code>labels.csv</code> sont relativement simples, ils montrent juste quelle photo correspond à quelle personne, et <code>reps.csv</code> est un grand nombre de matrices.</p>
+<h3 id="4-creez-le-mode-de-classification">4. Créez le mode de classification</h3>
+<pre><code class="bash">$ /root/openface/demos/classifier.py train ./generated-embeddings
+</code></pre>
+
+<p>Le résultat de l'apprentissage générera un fichier <code>classifier.pkl</code> dans le répertoire<code>generated-embeddings</code>. C'est ce que nous voulons finalement.</p>
+<h2 id="reconnaissance-de-visage">Reconnaissance de visage</h2>
+<p>Vous pouvez maintenant commencer à tester et copier une image dans <code>/ local_directory</code> qui ne se trouve pas dans l'ensemble de données. Cette photo peut inclure le fond ou le corps entier, mais il est préférable de ne pas mettre une photo de plusieurs personnes, ou la machine ne sait pas laquelle vous voulez identifier.</p>
+<p>En supposant que le fichier photo est <code>local_directory / 1.jpg</code></p>
+<pre><code class="bash">$ /root/openface/demos/classifier.py infer ./generated-embeddings/classifier.pkl 1.jpg
+</code></pre>
+
+<p>Si la personne sur la photo est l'une des deux personnes identifiées tout à l'heure, la précision de la reconnaissance sera supérieure à 90%. Sinon, ce sera moins de 80%.</p>
+<h2 id="en-plus">En plus</h2>
+<p>Lien du docker utilisé pour le projet 21 disponible <a href="https://hub.docker.com/r/haipengli/projet_21_openface/">ici</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../testprotocol/detection/" class="btn btn-neutral float-right" title="Détection">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../openbr/" class="btn btn-neutral" title="Open Br"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../openbr/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../testprotocol/detection/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>
