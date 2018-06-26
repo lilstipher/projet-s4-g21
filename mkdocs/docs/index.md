@@ -10,23 +10,23 @@ Au cours de notre vie quotidienne, nous percevons et identifions à longueur de 
 La documentation est divisée en 3 parties la première est une présentation générale de chaque méthode, ensuite une description du processus d'installation et d'utilisation. La seconde partie aborde l'utilisation et l'implémentation des protocoles de tests utilisés. La dernière partie est un guide d'utilisation du code fournis (tutorials).
 
 ## Présentation de chaque méthode
-* [`Face recognition`](../facerecognition)
-* [`Open Face`](../openface)
-* [`Open Br`](../openbr)
+* [`Face recognition`](/facerecognition)
+* [`Open Face`](/openface)
+* [`Open Br`](/openbr)
 
 ## Protocoles de tests
-* Détection
-* Reconnaissance
+* [Détection](/testprotocol/detection)
+* [Reconnaissance](/testprotocol/reconnaissance)
 
 
 ## Tutoriels et documentation du code
 * Tutoriels
-* Documentation `Face recognition`
-* Documentation `Open Face`
-* Documentation  `Open Br`
+* [Documentation `Face recognition`](/docs/facerecognition)
+* [Documentation `Open Face`](/docs/openface)
+* [Documentation  `Open Br`](/docs/openbr)
 
 
 ---
 
-[PROJECT 21 is licensed under the `GNU General Public License v3.0`](../about/license)
+[PROJECT 21 is licensed under the `GNU General Public License v3.0`](/about/license)
 Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.

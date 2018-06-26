@@ -71,15 +71,50 @@
         </ul>
     
 
-    <li class="toctree-l2"><a href="#face-recognition">Face Recognition</a></li>
-    
-
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
     <a class="" href="../openface/">Open Face</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Protocoles de tests</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../testprotocol/detection/">Détection</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../testprotocol/reconnaissance/">Reconnaissance</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Tutoriels et documentation du code</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../tutoriels/">Tutoriels</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docs/facerecognition/">Documentation Face recognition</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docs/openface/">Documentation Open Face</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../docs/openbr/">Documentation  Open Br</a>
+                </li>
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -415,7 +450,7 @@ $ nmake install
 </li>
 </ol>
 <hr />
-<h1 id="face-recognition">Face Recognition</h1>
+<h3 id="face-recognition">Face Recognition</h3>
 <p>Ce tutoriel donne un exemple sur la façon d'effectuer une reconnaissance de visage dans OpenBR. OpenBR implémente l'algorithme 4SF <a href="http://openbiometrics.org/docs/tutorials/#fn:2">^2</a> pour effectuer la reconnaissance faciale. Veuillez lire le "paper" pour plus de détails sur l'algorithme. </p>
 <p>Pour commencer, On peut faire la reconnaissance faciale à partir de l'invite de commande. Ouvrez le terminal et entrez:</p>
 <pre><code>$ br -algorithm FaceRecognition \

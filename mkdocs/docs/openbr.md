@@ -237,7 +237,7 @@ Cepedant nous avons préparé une `machine virtuelle linux` déjà prête à l'e
 
 ---
 
-# Face Recognition
+### Face Recognition
 
 Ce tutoriel donne un exemple sur la façon d'effectuer une reconnaissance de visage dans OpenBR. OpenBR implémente l'algorithme 4SF [^2](http://openbiometrics.org/docs/tutorials/#fn:2) pour effectuer la reconnaissance faciale. Veuillez lire le "paper" pour plus de détails sur l'algorithme. 
 

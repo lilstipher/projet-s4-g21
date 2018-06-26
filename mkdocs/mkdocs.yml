@@ -4,6 +4,14 @@ pages:
     - Face Recognition: facerecognition.md
     - Open Br: openbr.md
     - Open Face: openface.md
+    - Protocoles de tests: 
+        - Détection: testprotocol/detection.md
+        - Reconnaissance: testprotocol/reconnaissance.md
+    - Tutoriels et documentation du code :
+        - Tutoriels: tutoriels.md
+        - Documentation Face recognition: docs/facerecognition.md
+        - Documentation Open Face : docs/openface.md
+        - Documentation  Open Br: docs/openbr.md
     - About:
           - Licence:  'about/license.md'
 
