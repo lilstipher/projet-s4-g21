@@ -43,14 +43,14 @@ def show_rectangle_on_faces(img_path):
     timeT.append(time_end - time_start)
 
     return information
-for image_file in os.listdir("/home/hmkouassi/Bureau/S4/projet-s4-g21/Test/code/img/redim/"):
+for image_file in os.listdir("E:\PycharmProject\Test"):
     filename = os.path.basename(image_file)
     #print(filename)
     #all_list.append(show_rectangle_on_faces(os.path.join("E:\PycharmProject\Test", image_file)))
 
     #print(information)
 
-    show_rectangle_on_faces(os.path.join("/home/hmkouassi/Bureau/S4/projet-s4-g21/Test/code/img/redim/", image_file))
+    show_rectangle_on_faces(os.path.join("E:\PycharmProject\Test", image_file))
 #print(time_pixel)
 plt.plot(pixel,timeT, 'bo')
 plt.show()

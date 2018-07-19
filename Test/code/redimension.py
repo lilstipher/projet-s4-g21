@@ -9,7 +9,7 @@ mypath ="/home/hmkouassi/Bureau/S4/projet-s4-g21/Test/code/img"
 redimpath ="/home/hmkouassi/Bureau/S4/projet-s4-g21/Test/code/img/redim"
 imageFiles = [ f for f in listdir(mypath) if isfile(join(mypath,f)) and (f.endswith("G") or f.endswith("g")) ]
 #target = int(input("Dimension maximum voulue (ex 1000) : "))
-redimRatio=[0.1,0.2,0.3,0.5,0.6,0.7,0.8,0.9,1]
+redimRatio=[0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
 
 for im in imageFiles :
     im1 = Image.open(join(mypath,im))
